@@ -23,5 +23,7 @@ originals/
 exports/
 uploads/
 ai/
+!src/features/ai/
+!src/features/ai/**
 private/
 applications/
