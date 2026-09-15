@@ -1,5 +1,14 @@
 # 아키텍처와 설계 선택
 
+## 코드에서 이 구조를 찾기
+
+`server.mjs`는 서비스 조립과 시작/종료, `server/http/router.mjs`는 요청 분기,
+`server/storage/documents.mjs`는 원문·초안 저장, `server/pdf/exporter.mjs`는 출력 세션을
+담당합니다. 프런트엔드의 `src/main.jsx`는 mount만 하고 `src/app/App.jsx`가 화면을 조정합니다.
+자동 저장 큐와 dirty 상태는 `src/features/documents/useDocumentSession.js`, iframe DOM은
+`src/features/editor/document.js`가 소유합니다. [호출 경로 안내](CODE_STRUCTURE.md)와
+[분리 이유](decisions/0002-readable-module-boundaries.md)를 함께 확인하세요.
+
 실제 코드·테스트와 연결한 상세 설명: [AI 수정안 적용 결정](decisions/0001-ai-proposal-conflicts.md), [충돌 방지 재현 사례](cases/ai-proposal-conflicts.md), [검증 방법](VALIDATION.md).
 
 ## 범위와 책임

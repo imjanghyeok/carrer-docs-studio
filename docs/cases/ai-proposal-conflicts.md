@@ -10,7 +10,7 @@ AI 수정안을 받은 뒤 사용자가 직접 고친 문서를 이전 제안으
 ## 구현과 판단
 
 [AIService](../../ai-service.mjs)는 제안의 기준 HTML 해시를 저장하고, decide에서 문서 잠금 안에서 최신 해시·revision을 비교합니다.
-비교 실패 시 저장하지 않고 오류를 반환합니다. [AIChat](../../src/AIChat.jsx)은 수정 전후 비교와 명시적 적용 단계를 제공합니다.
+비교 실패 시 저장하지 않고 오류를 반환합니다. [AIChat](../../src/features/ai/AIChat.jsx)은 수정 전후 비교와 명시적 적용 단계를 제공합니다.
 자동 병합 대신 보수적 거절을 사용하는 이유와 비용은 [설계 기록](../decisions/0001-ai-proposal-conflicts.md)에 정리했습니다.
 
 ## 재현 절차

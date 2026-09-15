@@ -1,4 +1,4 @@
-import { chartTarget, writeChart, validateChart } from './charts';
+import { chartTarget, writeChart, validateChart } from '../charts/charts.js';
 import {
   BLOCK_CSS,
   blockKind,
@@ -7,7 +7,7 @@ import {
   convertBlock,
   removeBlock,
   splitBlock,
-} from './blocks';
+} from './blocks.js';
 export const EDITOR_CSS = `
 html{scroll-behavior:smooth} body{background:#e8ebe9!important;padding:22px 0!important;min-height:0!important}
 .page{margin:0 auto 26px!important;box-shadow:0 3px 18px #24372c14!important}
