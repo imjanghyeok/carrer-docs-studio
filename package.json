@@ -4,14 +4,19 @@
   "license": "MIT",
   "version": "0.1.0",
   "description": "Local-first HTML resume and portfolio editor with reviewable AI edits",
-  "engines": {"node": ">=22"},
+  "engines": {
+    "node": ">=22.13"
+  },
   "type": "module",
   "scripts": {
     "start": "node server.mjs",
     "build": "vite build",
     "test": "node --test test/ai.test.mjs test/paths.test.mjs test/public.test.mjs test/companies.test.mjs && node test/ui.mjs && node test/ai-ui.mjs && node test/companies-ui.mjs && node test/blocks-ui.mjs && node test/organization-ui.mjs",
     "check:public": "node scripts/check-public.mjs",
-    "check": "npm run check:public && npm run build && npm test",
+    "format": "prettier --write \"**/*.{js,jsx,mjs,css}\"",
+    "format:check": "prettier --check \"**/*.{js,jsx,mjs,css}\"",
+    "lint": "eslint .",
+    "check": "npm run check:public && npm run format:check && npm run lint && npm run build && npm test",
     "test:ai": "node --test test/ai.test.mjs && node test/ai-ui.mjs",
     "test:ui": "node test/ui.mjs"
   },
@@ -24,6 +29,10 @@
     "react-dom": "18.3.1"
   },
   "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "eslint": "10.10.0",
+    "globals": "17.12.0",
+    "prettier": "3.9.6",
     "vite": "6.4.3"
   },
   "overrides": {
