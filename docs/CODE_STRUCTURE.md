@@ -1,5 +1,7 @@
 # 코드 구조
 
+개발 운영 파일은 `.github/ISSUE_TEMPLATE/`, `.github/PULL_REQUEST_TEMPLATE.md`, `.github/workflows/check.yml`에 있습니다. [개발 기록](DEVELOPMENT.md), [검증 안내](VALIDATION.md), `docs/decisions/`, `docs/cases/`에서 구현과 검증 근거를 연결합니다.
+
 ```text
 career-studio/
 ├── src/

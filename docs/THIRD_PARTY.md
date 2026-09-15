@@ -1,12 +1,12 @@
 # Third-party components
 
-Career Studio는 다음 구성요소를 사용합니다. 각 패키지의 라이선스와 배포 고지를 확인할 수 있도록 역할과 위치를 정리했습니다.
+사용 중인 버전·라이선스·원본 고지 링크와 다이어그램 글꼴 목록은 [README의 Credits](../README.md#credits)에 모았습니다. 이 문서는 설치물의 확인 위치와 빌드 변경 사항을 설명합니다.
 
 | 구성요소 | 사용하는 기능 | 확인할 라이선스/고지 위치 |
 | --- | --- | --- |
 | React / React DOM | UI 컴포넌트·렌더링 | 설치된 react 및 react-dom 패키지의 LICENSE |
 | Vite | 개발·프로덕션 번들 | 설치된 vite 패키지의 LICENSE |
-| Excalidraw | 도형·화살표·텍스트 캔버스, SVG와 scene | 패키지 LICENSE 및 배포 글꼴별 고지 |
+| Excalidraw | 도형·화살표·텍스트 캔버스, SVG와 scene | [0.18.1 원본 LICENSE](https://github.com/excalidraw/excalidraw/blob/v0.18.1/LICENSE) 및 README의 글꼴별 고지. 설치한 npm 패키지 루트에는 LICENSE 파일이 없어 원본 태그를 참조합니다. |
 | diff | 텍스트 패치 생성과 복원 | 설치된 diff 패키지의 LICENSE |
 | parse5 | HTML 파싱과 원문 위치 | 설치된 parse5 패키지의 LICENSE |
 | Playwright / Chromium | 브라우저 자동화와 PDF 인쇄 | Playwright LICENSE/NOTICE 및 Chromium 배포 고지 |

@@ -1,5 +1,7 @@
 # 아키텍처와 설계 선택
 
+실제 코드·테스트와 연결한 상세 설명: [AI 수정안 적용 결정](decisions/0001-ai-proposal-conflicts.md), [충돌 방지 재현 사례](cases/ai-proposal-conflicts.md), [검증 방법](VALIDATION.md).
+
 ## 범위와 책임
 
 단일 사용자가 자신의 컴퓨터에서 실행하는 문서 편집기입니다. 웹 화면을 사용하지만 서버는 loopback 주소에만 바인딩합니다. 개인 데이터 저장과 AI 추론은 서로 다른 경계입니다.

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "feature",
+    "color": "0E8A16",
+    "description": "새로운 사용자 기능 추가"
+  },
+  {
+    "name": "enhancement",
+    "color": "A2EEEF",
+    "description": "기존 기능의 사용성·동작 개선"
+  },
+  {
+    "name": "bug",
+    "color": "D73A4A",
+    "description": "의도한 동작과 다른 문제"
+  },
+  {
+    "name": "refactor",
+    "color": "D4C5F9",
+    "description": "사용자 동작을 유지하는 내부 구조 개선"
+  },
+  {
+    "name": "test",
+    "color": "FBCA04",
+    "description": "테스트·검증 체계 개선"
+  },
+  {
+    "name": "docs",
+    "color": "0075CA",
+    "description": "문서 작성·수정"
+  },
+  {
+    "name": "chore",
+    "color": "CFD3D7",
+    "description": "개발 환경·의존성·빌드·CI 관리"
+  }
+]
