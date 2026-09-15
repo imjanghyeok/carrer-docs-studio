@@ -1,7 +1,7 @@
 ---
 name: 버그 신고
 about: 재현 가능한 문제와 해결 결과를 기록합니다.
-title: ""
+title: "[도메인] "
 labels: bug
 assignees: ""
 ---

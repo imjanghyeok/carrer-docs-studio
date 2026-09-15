@@ -1,6 +1,7 @@
 [
   "test/storage.test.mjs",
   "docs/decisions/0002-readable-module-boundaries.md",
+  "scripts/check-commits.mjs",
   ".editorconfig",
   ".prettierrc.json",
   ".prettierignore",
@@ -96,5 +97,15 @@
   "server/shared/errors.mjs",
   "server/storage/documents.mjs",
   "server/storage/files.mjs",
-  "server/storage/queue.mjs"
+  "server/storage/queue.mjs",
+  "scripts/policy/rules.mjs",
+  "scripts/check-pr-policy.mjs",
+  "scripts/review/local-model.mjs",
+  "scripts/review-local.mjs",
+  "test/policy.test.mjs",
+  "eslint.sonar.config.js",
+  "docs/QUALITY_AND_REVIEW.md",
+  "sonar-project.properties",
+  ".github/workflows/policy.yml",
+  ".github/workflows/sonar.yml"
 ]

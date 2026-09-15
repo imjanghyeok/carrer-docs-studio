@@ -102,6 +102,10 @@ TXT·Markdown·HTML·텍스트 PDF를 지원합니다. PDF 텍스트 추출에�
 
 수정 전에 [코드 작성 기준](docs/CODING_CONVENTIONS.md)을 확인하세요.
 
+PR·커밋 규칙, 무료 SonarJS 검사와 선택적 로컬 모델 리뷰는
+[품질 검사와 리뷰](docs/QUALITY_AND_REVIEW.md)에 정리했습니다. SonarQube Cloud는
+소유자의 무료 OSS 프로젝트 연결 후 활성화됩니다.
+
 ```sh
 npm run build         # 프런트엔드 빌드
 npm test              # 단위 테스트 + 편집기·AI 브라우저 테스트
@@ -145,6 +149,12 @@ Career Studio는 아래 오픈소스 프로젝트를 사용합니다. 다이어�
 | Vite 6.4.3 | 프런트엔드 빌드 | [MIT 및 포함 구성요소 고지](https://github.com/vitejs/vite/blob/v6.4.3/packages/vite/LICENSE.md) |
 
 ### 별도로 설치하는 실행 도구
+
+개발 검사에는 ESLint·@eslint/js·Prettier·globals(MIT)와
+[eslint-plugin-sonarjs](https://github.com/SonarSource/SonarJS)(LGPL-3.0-only)를 사용합니다.
+이들은 개발 의존성이며 브라우저 앱에 번들링하지 않습니다. 개발 도구를 재배포할 때는
+각 패키지의 LICENSE와 해당 조건을 유지해야 합니다. SonarQube Cloud 서비스 이용 조건은
+패키지 라이선스와 별개입니다.
 
 아래 도구의 실행 파일은 이 저장소에 포함하지 않습니다. 설치된 버전과 배포물의 라이선스·고지를 따릅니다.
 
