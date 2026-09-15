@@ -1,0 +1,87 @@
+[
+  {
+    "id": "resume--document",
+    "name": "이력서 · 문서형",
+    "kind": "resume",
+    "format": "document",
+    "template": "resume.html"
+  },
+  {
+    "id": "portfolio--narrative",
+    "name": "포트폴리오 · 내러티브형",
+    "kind": "portfolio",
+    "format": "narrative",
+    "template": "portfolio.html"
+  },
+  {
+    "id": "cover-letter--general",
+    "name": "자기소개서 · 범용형",
+    "kind": "cover-letter",
+    "format": "general",
+    "template": "cover-letter.html"
+  },
+  {
+    "id": "resume--visual",
+    "name": "이력서 · 시각형",
+    "kind": "resume",
+    "format": "visual",
+    "label": "시각형",
+    "template": "resume-visual.html"
+  },
+  {
+    "id": "resume--pr-focused",
+    "name": "이력서 · PR 중심형",
+    "kind": "resume",
+    "format": "pr-focused",
+    "label": "PR 중심형",
+    "template": "resume-pr-focused.html"
+  },
+  {
+    "id": "resume--summary",
+    "name": "이력서 · 요약형",
+    "kind": "resume",
+    "format": "summary",
+    "label": "요약형",
+    "template": "resume-summary.html"
+  },
+  {
+    "id": "portfolio--detailed",
+    "name": "포트폴리오 · 상세형",
+    "kind": "portfolio",
+    "format": "detailed",
+    "label": "상세형",
+    "template": "portfolio-detailed.html"
+  },
+  {
+    "id": "portfolio--overview",
+    "name": "포트폴리오 · 프로젝트 개요형",
+    "kind": "portfolio",
+    "format": "overview",
+    "label": "프로젝트 개요형",
+    "template": "portfolio-overview.html"
+  },
+  {
+    "id": "cover-letter--questions",
+    "name": "자기소개서 · 문항형",
+    "kind": "cover-letter",
+    "format": "questions",
+    "label": "문항형",
+    "template": "cover-letter-questions.html"
+  },
+  {
+    "id": "cover-letter--experience",
+    "name": "자기소개서 · 경험 중심형",
+    "kind": "cover-letter",
+    "format": "experience",
+    "label": "경험 중심형",
+    "template": "cover-letter-experience.html"
+  },
+  {
+    "id": "personal-statement--integrated",
+    "name": "통합 소개서 · 통합형",
+    "kind": "personal-statement",
+    "format": "integrated",
+    "label": "통합형",
+    "template": "personal-statement-integrated.html"
+  }
+]

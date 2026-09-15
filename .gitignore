@@ -1,0 +1,27 @@
+node_modules/
+dist/
+.test-data/
+coverage/
+.local/
+.DS_Store
+Thumbs.db
+.env
+.env.*
+*.log
+*.tmp
+*.pdf
+*.zip
+*.pem
+*.key
+.codex/
+auth.json
+# Defense in depth. Default user data lives OUTSIDE this repository.
+data/
+user-data/
+drafts/
+originals/
+exports/
+uploads/
+ai/
+private/
+applications/
