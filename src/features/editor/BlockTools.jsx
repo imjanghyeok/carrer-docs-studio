@@ -1,5 +1,5 @@
 import React from 'react';
-import { blockKinds } from './blocks';
+import { blockKinds } from './blocks.js';
 import './blocks.css';
 
 export default function BlockTools({ selection, action, menu, setMenu, convert, disabled }) {

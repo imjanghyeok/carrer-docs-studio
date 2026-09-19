@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { validateChart } from './charts';
+import { validateChart } from './charts.js';
 
 export default function ChartEditor({ initial, onApply, onClose }) {
   const [model, setModel] = useState(initial),

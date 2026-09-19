@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node server.mjs",
     "build": "vite build",
-    "test": "node --test test/ai.test.mjs test/paths.test.mjs test/public.test.mjs test/companies.test.mjs && node test/ui.mjs && node test/ai-ui.mjs && node test/companies-ui.mjs && node test/blocks-ui.mjs && node test/organization-ui.mjs",
+    "test": "node --test test/ai.test.mjs test/paths.test.mjs test/public.test.mjs test/companies.test.mjs test/storage.test.mjs && node test/ui.mjs && node test/ai-ui.mjs && node test/companies-ui.mjs && node test/blocks-ui.mjs && node test/organization-ui.mjs",
     "check:public": "node scripts/check-public.mjs",
     "format": "prettier --write \"**/*.{js,jsx,mjs,css}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,mjs,css}\"",

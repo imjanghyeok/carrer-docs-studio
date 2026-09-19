@@ -1,57 +1,68 @@
 # 코드 구조
 
-개발 운영 파일은 `.github/ISSUE_TEMPLATE/`, `.github/PULL_REQUEST_TEMPLATE.md`, `.github/workflows/check.yml`에 있습니다. [개발 기록](DEVELOPMENT.md), [검증 안내](VALIDATION.md), `docs/decisions/`, `docs/cases/`에서 구현과 검증 근거를 연결합니다.
+## 실행 진입점
+
+- `src/main.jsx`: React mount만 담당.
+- `src/app/App.jsx`: 문서 전환·선택·AI 적용·기능 연결과 모달 상태 조정.
+- `server.mjs`: 데이터 경로·토큰·공유 큐·서비스 구성, HTTP 시작과 종료.
+- `start.mjs`: 로컬 설치·빌드·실행 안내.
+
+## 디렉토리별 책임
 
 ```text
-career-studio/
-├── src/
-│   ├── main.jsx             # 문서 목록, 저장, 선택 상태, 기능 연결
-│   ├── document.js          # iframe DOM 편집·직렬화·undo/redo
-│   ├── blocks.js            # 블록 유형·목록·Enter 분할과 임시 보기 CSS
-│   ├── BlockTools.jsx       # 블록 추가·변환·순서·삭제 메뉴
-│   ├── blocks.css           # 모드 전환과 블록 도구 UI
-│   ├── charts.js            # HTML 그래프 데이터 읽기·검증·반영
-│   ├── ChartEditor.jsx      # 수치/활동 기간 그래프 편집 폼
-│   ├── Diagram.jsx          # Excalidraw와 SVG/scene 연결
-│   ├── AIChat.jsx           # 채팅·모델 선택·수정 전후 검토
-│   ├── CompanyFolders.jsx   # 회사별 편집 문서 분류·사본 진입
-│   ├── SelectionTools.jsx   # 박스/텍스트 선택·삭제 확인창
-│   ├── organization.css     # 회사 폴더·선택 도구·좁은 화면 설정
-│   ├── CompanyLibrary.jsx   # 회사별 자료 선택·가져오기·추출 결과 확인
-│   ├── review-prompt.js     # 사실과 근거에 기반한 채용 검토 프롬프트
-│   ├── companies.css        # 회사 자료 창·전송 자료 목록
-│   ├── style.css            # 기본 화면·편집 패널
-│   └── ai.css               # 채팅·수정안 검토 창
-├── server.mjs               # HTTP 라우트·문서 저장·패치·PDF
-├── ai-service.mjs           # AI 요청·범위·검증·승인·기록
-├── codex-bridge.mjs         # Codex App Server JSONL 어댑터
-├── lib/paths.mjs            # 외부 데이터 경로·리소스 경로 격리
-├── lib/company-store.mjs    # 회사 자료 보관·검증·텍스트 추출·AI 참조
-├── lib/new-document.mjs     # 빈 A4·블록형·2열 새 문서 생성
-├── templates/               # 배포 가능한 빈 HTML 11종과 목록
-├── public/config.js         # Excalidraw 로컬 글꼴 경로
-├── start.mjs                # 의존성·빌드·서버·브라우저 실행
-├── Start.command            # macOS 실행 진입점
-├── vite.config.js           # 빌드와 Excalidraw CDN fallback 제거
-├── test/                    # 가상 데이터 기반 단위·브라우저 검증
-├── scripts/check-public.mjs # 공개 파일 허용 목록·민감 패턴 검사
-├── PUBLIC_FILES.json        # 공개할 파일의 명시적 목록
-├── docs/                    # 아키텍처, 코드 구조, 사용법, 외부 구성요소
-└── SECURITY.md              # 데이터·전송·보안 경계
+src/
+  app/                     App, DocumentSidebar, EditorToolbar, Inspector
+  features/
+    documents/             표시 이름과 useDocumentSession 저장 큐
+    editor/                document 엔진, blocks 명령, 선택·블록 도구
+    charts/                그래프 데이터 검증과 편집 폼
+    diagrams/              외부 다이어그램 엔진 어댑터
+    ai/                    AIChat, 피드백 프롬프트와 스타일
+    companies/             회사 폴더·참고자료 UI와 스타일
+  shared/                  API 클라이언트, Icon, NumberField, 색 변환
+  styles/                  작업실 전체 화면 스타일
+server/
+  http/                    router 요청 분기, responses 입력/응답/CSP
+  storage/                 documents 원문·초안, files 원자적 교체, queue
+  pdf/                     exporter Chromium·출력 세션·PDF
+  shared/                  오류 계약
+lib/                       회사 자료 저장, 안전한 경로, 새 문서 생성
+ai-service.mjs             AI 범위·승인·충돌 검사
+codex-bridge.mjs           외부 CLI 프로토콜
+test/                      가상 자료 단위·브라우저 테스트
+templates/                 배포용 빈 HTML (사용자 자료가 아님)
 ```
 
-## 수정할 기능별 출발점
+화면 조립은 기능 모듈을 사용하며 기능은 공통 코드에 의존합니다. shared에서 app을
+참조하지 않습니다. 서버 라우터는 구성 시 받은 저장소·AI·PDF 서비스를 사용하고,
+저장소와 PDF 모듈은 React에 의존하지 않습니다.
 
-| 작업 | 먼저 읽을 파일 |
-| --- | --- |
-| 글자·박스 편집 | `src/document.js`, `src/main.jsx` |
-| 블록 모드·새 문서 형식 | `src/blocks.js`, `src/BlockTools.jsx`, `lib/new-document.mjs`, `test/blocks-ui.mjs` |
-| 회사별 문서·선택·삭제 | `src/CompanyFolders.jsx`, `src/SelectionTools.jsx`, `test/organization-ui.mjs` |
-| 저장·복원·출력 | `server.mjs`, `lib/paths.mjs`, `test/ui.mjs` |
-| 채팅 화면 | `src/AIChat.jsx`, `src/ai.css` |
-| 회사별 자료·피드백 프리셋 | `src/CompanyLibrary.jsx`, `src/review-prompt.js`, `lib/company-store.mjs`, `test/companies.test.mjs`, `test/companies-ui.mjs` |
-| AI 전송 범위·승인 정책 | `ai-service.mjs`, `test/ai.test.mjs` |
-| Codex 프로토콜 변경 | `codex-bridge.mjs`, `test/mock-codex.mjs` |
-| 템플릿 추가 | `templates/catalog.json`, 새 독립 HTML, `PUBLIC_FILES.json` |
+## 실제 수정 경로
 
-`server.mjs`가 HTTP 라우트·저장·PDF 출력을 조정하고, 문서 DOM 편집과 AI 요청 처리는 별도 모듈에서 담당합니다.
+| 수정할 것 | 진입과 호출 흐름 | 확인할 테스트 |
+| --- | --- | --- |
+| 글자·블록 편집 | editor/document.js 명령 → changed → documents/useDocumentSession.js changed/flush → API save → storage/documents.mjs save | ui.mjs, blocks-ui.mjs, storage.test.mjs |
+| 문서 전환 | app/App.jsx open → flush → API load → DocumentEditor 재연결 | organization-ui.mjs, ui.mjs |
+| AI 제안 적용 | ai/AIChat.jsx → App applyAI → ai-service.mjs decide → 저장소 save | ai.test.mjs, ai-ui.mjs |
+| PDF 내보내기 | App exportPDF → router export → pdf/exporter.mjs exportDocument → Chromium | ui.mjs, blocks-ui.mjs |
+| 도구 배치 | app/EditorToolbar.jsx, styles/workspace.css | organization-ui.mjs와 화면 확인 |
+| 블록 설정 | app/Inspector.jsx → selectedAction → DocumentEditor | ui.mjs |
+| 회사 자료 | companies/CompanyLibrary.jsx → router → lib/company-store.mjs | companies.test.mjs, companies-ui.mjs |
+| 새 템플릿 | templates/catalog.json, 빈 HTML, PUBLIC_FILES.json | ui.mjs |
+
+## 상태를 읽는 순서
+
+1. App의 current는 화면 문서, DocumentEditor는 실제 iframe DOM을 소유합니다.
+2. useDocumentSession의 state는 서버 문서 버전, dirty는 아직 저장되지 않은 편집입니다.
+3. flush는 저장을 직렬화하고 완료 시 문서 ID와 편집 변경 여부를 확인합니다.
+4. UI 패널은 상태를 전달받아 보여주고 콜백을 호출합니다. 패널 안에 별도 문서 원본을 두지 않습니다.
+5. 백엔드의 문서별 queue는 한 프로세스에서만 유효합니다. 파일 교체는 전체 트랜잭션을 뜻하지 않습니다.
+
+## 작은 수정을 시작하는 방법
+
+예를 들어 확대 도구를 수정하려면 EditorToolbar의 버튼과 workspace.css부터 읽고
+연결된 setZoom 콜백을 App에서 확인합니다. 수정 후 `npm run format`, `npm run lint`,
+`npm run check`를 실행하고 좁은 화면을 직접 확인합니다. 실제 문서를 테스트에 쓰지 않습니다.
+
+App에 남아 있는 모달·기능 간 조정과 라우터의 복원·원본 반영 조정은 현재 구조의 한계입니다.
+[설계 선택과 남은 경계](decisions/0002-readable-module-boundaries.md)를 함께 읽으세요.

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { reviewPrompt } from './review-prompt';
+import { reviewPrompt } from '../ai/review-prompt.js';
 import './companies.css';
 
 const labels = {
