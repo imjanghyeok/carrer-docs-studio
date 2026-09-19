@@ -1,7 +1,7 @@
 ---
 name: 작업·개선
 about: 문제와 범위, 설계 판단, 완료 기준을 기록합니다.
-title: ""
+title: "[도메인] "
 labels: ""
 assignees: ""
 ---

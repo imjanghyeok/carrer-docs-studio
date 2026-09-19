@@ -16,9 +16,13 @@
     "format": "prettier --write \"**/*.{js,jsx,mjs,css}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,mjs,css}\"",
     "lint": "eslint .",
-    "check": "npm run check:public && npm run format:check && npm run lint && npm run build && npm test",
+    "check": "npm run check:public && npm run format:check && npm run lint && npm run lint:sonar && npm run test:policy && npm run build && npm test",
     "test:ai": "node --test test/ai.test.mjs && node test/ai-ui.mjs",
-    "test:ui": "node test/ui.mjs"
+    "test:ui": "node test/ui.mjs",
+    "lint:sonar": "eslint -c eslint.sonar.config.js .",
+    "review:local": "node scripts/review-local.mjs",
+    "check:commits": "node scripts/check-commits.mjs",
+    "test:policy": "node --test test/policy.test.mjs"
   },
   "dependencies": {
     "@excalidraw/excalidraw": "0.18.1",
@@ -31,6 +35,7 @@
   "devDependencies": {
     "@eslint/js": "10.0.1",
     "eslint": "10.10.0",
+    "eslint-plugin-sonarjs": "4.2.0",
     "globals": "17.12.0",
     "prettier": "3.9.6",
     "vite": "6.4.3"
