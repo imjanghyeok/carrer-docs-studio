@@ -25,7 +25,7 @@ Career Studio는 HTML을 원문으로 사용하는 문서 작업실입니다. �
 
 ## 시작하기
 
-Node.js **22 이상**이 필요합니다. 프로젝트를 내려받은 뒤 해당 폴더에서 실행하세요.
+Node.js **22.13 이상**이 필요합니다. 프로젝트를 내려받은 뒤 해당 폴더에서 실행하세요.
 
 ```sh
 npm ci
@@ -99,6 +99,8 @@ TXT·Markdown·HTML·텍스트 PDF를 지원합니다. PDF 텍스트 추출에�
 의존성 버전은 [package.json](package.json)과 lockfile에 고정합니다. 설계의 중심은 HTML 원문 유지, 로컬 데이터 분리, 검토 가능한 AI 수정, 변경 이력 복원입니다. 자세한 흐름은 [아키텍처](docs/ARCHITECTURE.md)와 [코드 구조](docs/CODE_STRUCTURE.md)를 참고하세요.
 
 ## 개발 및 테스트
+
+수정 전에 [코드 작성 기준](docs/CODING_CONVENTIONS.md)을 확인하세요.
 
 ```sh
 npm run build         # 프런트엔드 빌드

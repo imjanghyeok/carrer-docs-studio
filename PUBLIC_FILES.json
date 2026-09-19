@@ -1,4 +1,9 @@
 [
+  ".editorconfig",
+  ".prettierrc.json",
+  ".prettierignore",
+  "eslint.config.js",
+  "docs/CODING_CONVENTIONS.md",
   ".github/labels.json",
   ".github/ISSUE_TEMPLATE/bug.md",
   ".github/ISSUE_TEMPLATE/task.md",

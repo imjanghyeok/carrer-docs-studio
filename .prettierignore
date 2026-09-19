@@ -1,0 +1,7 @@
+node_modules/
+dist/
+.test-data/
+.local/
+coverage/
+templates/
+package-lock.json

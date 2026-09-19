@@ -1,3 +1,163 @@
-.editor-modes{display:flex;align-items:center;gap:14px;padding:10px 32px;border-top:1px solid #e2e8e0;border-bottom:1px solid #e2e8e0;background:#f9fbf7;flex-wrap:wrap}.editor-modes>div{display:flex;border:1px solid #d7e2d4;border-radius:9px;padding:3px;background:#fff}.editor-modes button{border:0;background:none;font-size:12px;padding:8px 13px}.editor-modes button[aria-pressed=true]{background:#e1eddd;color:#265b43}.editor-modes p{font-size:11px;color:#768271;margin:0}.block-tools{position:relative;padding:12px 24px;background:#fff;border-bottom:1px solid #e1e7de}.block-actions{display:flex;align-items:center;gap:7px;flex-wrap:wrap}.block-actions button{font-size:11px;padding:7px 9px}.block-actions label{display:flex;align-items:center;gap:6px;font-size:11px;color:#64705e}.block-actions select{font:inherit;padding:7px;max-width:150px}.block-tools>p{font-size:10px;line-height:1.7;color:#85917f;margin-top:9px}.block-menu{position:absolute;top:56px;left:24px;width:300px;background:#fff;z-index:30;border:1px solid #d8e3d2;border-radius:12px;box-shadow:0 12px 40px #284d2e26;padding:13px}.block-menu header{display:flex;align-items:center;justify-content:space-between;font-size:12px;margin-bottom:10px}.block-menu header button{font-size:10px;padding:5px}.block-menu>div{display:grid;grid-template-columns:1fr 1fr;gap:6px}.block-menu>div button{font-size:12px;text-align:left;padding:10px}.block-mode .toolbar .layout-tools{display:none}.block-mode .settings-section,.block-mode .wide-button{display:none}.block-mode .empty-inspector .tip{display:none}.block-mode .empty-inspector:after{content:'크기·색·박스 배치는 레이아웃 모드에서 조절하세요.';display:block;font-size:12px;line-height:1.8;color:#7a8871;padding:16px}.block-mode .paper-position{transition:none}.format-choice{display:block;margin-top:15px}.format-choice select{display:block;width:100%;padding:10px;margin-top:8px;border:1px solid #d4dfd0;border-radius:7px;font:inherit}
-.block-mode .toolbar>.tool-group:nth-child(3){display:none}.block-mode .toolbar{min-height:46px}.block-mode .canvas-title{gap:12px}.block-mode .canvas-title span:first-child{letter-spacing:0}
-@media(max-width:1100px){.editor-modes{padding:8px 14px;gap:7px}.block-tools{padding:10px 14px}.block-actions{gap:5px}.block-actions button{padding:6px}.editor-modes p{width:100%}}
+.editor-modes {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 32px;
+  border-top: 1px solid #e2e8e0;
+  border-bottom: 1px solid #e2e8e0;
+  background: #f9fbf7;
+  flex-wrap: wrap;
+}
+.editor-modes > div {
+  display: flex;
+  border: 1px solid #d7e2d4;
+  border-radius: 9px;
+  padding: 3px;
+  background: #fff;
+}
+.editor-modes button {
+  border: 0;
+  background: none;
+  font-size: 12px;
+  padding: 8px 13px;
+}
+.editor-modes button[aria-pressed='true'] {
+  background: #e1eddd;
+  color: #265b43;
+}
+.editor-modes p {
+  font-size: 11px;
+  color: #768271;
+  margin: 0;
+}
+.block-tools {
+  position: relative;
+  padding: 12px 24px;
+  background: #fff;
+  border-bottom: 1px solid #e1e7de;
+}
+.block-actions {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.block-actions button {
+  font-size: 11px;
+  padding: 7px 9px;
+}
+.block-actions label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  color: #64705e;
+}
+.block-actions select {
+  font: inherit;
+  padding: 7px;
+  max-width: 150px;
+}
+.block-tools > p {
+  font-size: 10px;
+  line-height: 1.7;
+  color: #85917f;
+  margin-top: 9px;
+}
+.block-menu {
+  position: absolute;
+  top: 56px;
+  left: 24px;
+  width: 300px;
+  background: #fff;
+  z-index: 30;
+  border: 1px solid #d8e3d2;
+  border-radius: 12px;
+  box-shadow: 0 12px 40px #284d2e26;
+  padding: 13px;
+}
+.block-menu header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.block-menu header button {
+  font-size: 10px;
+  padding: 5px;
+}
+.block-menu > div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.block-menu > div button {
+  font-size: 12px;
+  text-align: left;
+  padding: 10px;
+}
+.block-mode .toolbar .layout-tools {
+  display: none;
+}
+.block-mode .settings-section,
+.block-mode .wide-button {
+  display: none;
+}
+.block-mode .empty-inspector .tip {
+  display: none;
+}
+.block-mode .empty-inspector:after {
+  content: '크기·색·박스 배치는 레이아웃 모드에서 조절하세요.';
+  display: block;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #7a8871;
+  padding: 16px;
+}
+.block-mode .paper-position {
+  transition: none;
+}
+.format-choice {
+  display: block;
+  margin-top: 15px;
+}
+.format-choice select {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border: 1px solid #d4dfd0;
+  border-radius: 7px;
+  font: inherit;
+}
+.block-mode .toolbar > .tool-group:nth-child(3) {
+  display: none;
+}
+.block-mode .toolbar {
+  min-height: 46px;
+}
+.block-mode .canvas-title {
+  gap: 12px;
+}
+.block-mode .canvas-title span:first-child {
+  letter-spacing: 0;
+}
+@media (max-width: 1100px) {
+  .editor-modes {
+    padding: 8px 14px;
+    gap: 7px;
+  }
+  .block-tools {
+    padding: 10px 14px;
+  }
+  .block-actions {
+    gap: 5px;
+  }
+  .block-actions button {
+    padding: 6px;
+  }
+  .editor-modes p {
+    width: 100%;
+  }
+}
